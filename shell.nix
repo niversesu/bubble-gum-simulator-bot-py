@@ -1,12 +1,14 @@
-# shell.nix
 { pkgs ? import <nixpkgs> {} }:
 
 pkgs.mkShell {
   buildInputs = [
-    pkgs.curl
+    pkgs.python310     # or whichever Python version you want
+    pkgs.python310Packages.requests
+    pkgs.python310Packages.pyautogui
+    pkgs.python310Packages.pyperclip
   ];
 
   shellHook = ''
-    echo "Welcome to the dev environment)"
+    echo "Welcome to the Python dev environment!"
   '';
 }
